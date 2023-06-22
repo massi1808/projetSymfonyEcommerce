@@ -1,0 +1,87 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}dmclothing{% endblock %}
+
+{% block body %}
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(357px, 1fr));
+    gap: 90px;
+    margin-left: 0%;
+    background-color: #73737378;
+    padding-left: 7%;
+  }
+  .col {
+    /* Ajoutez ici les styles spécifiques à chaque colonne si nécessaire */
+  }
+</style>
+
+<div class="row">
+  {% for produit in produits %}
+    {% if produit.category == 'homme' %} 
+      <div class="col">
+        <a href="">
+          <div class="kabyle1">
+            <img class="tof1" src="{{ asset('uploads/' ~ produit.illustration) }}">
+            <p>{{ produit.nom }}</p>{{ produit.price }}€
+          </div>
+        </a>
+         <a href="{{ path('add_to_cart', { 'id' : produit.id }) }}" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{# <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper"> #}
+    {# <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/dmclothing.symfony/dmclothing/src/Controller/HommeController.php'|file_link(0) }}">src/Controller/HommeController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/wamp64/www/dmclothing.symfony/dmclothing/templates/homme/index.html.twig'|file_link(0) }}">templates/homme/index.html.twig</a></code></li>
+    </ul> #}
+{# </div>
+ <div class="femme">
+        
+       <a href=""> <div class="kabyle1"><img class="tof1" src="images/h1.png"><p>SURVETEMENT HOMME GRIS <br> 80€</p>
+       <select name="nom_champ" id="id_champ">
+                            <option value="val1">Taille</option>
+                            <option value="val1">S</option>
+                            <option value="val2">M</option>
+                            <option value="val3">L</option>
+                            <option value="val4">XL</option>
+                          </select>
+                         </div></a>
+       
+        
+        <a href=""><div class="kabyle2"><img src="images/h6.jpg" class="tof2"><p>VESTE HOMME NOIR IMPERMEABLE</p>35€</div></a>
+       <a href=""> <div class="jean"><img src="images/h3.jpg" class="tof3"><p>JEANS HOMME BLEU</p>8€</div></a>
+        
+</div>
+
+<div class="femme2">
+  <a href=""><div class="chaussur1"><img class="tof4" src="images/f23.jpg"><p>pull homme </p>16€</div></a>
+  <a href=""><div class="chaussur2"><img class="tof5" src="images/f24.webp"><p>GILLET HOMME</p>17€</div></a>
+  <a href=""><div class="chaussur3"><img class="tof6" src="images/f22.jpg"><p>CHEMISE HOMME NOIR</p>16€</div></a>
+</div>
+<div class="femme">
+        
+  <a href=""><div class="kabyle1"><img src="images/b1.jpg"><p>CHAUSSURE HOMME CLASSIQUE</p>80€</div></a>
+  <a href=""><div class="kabyle2"><img src="images/b2.jpg"><p>MOCASSIN HOMME BLEU</p>35€</div></a>
+  <a href=""><div class="jean"><img src="images/b3.webp"><p>BASKET HOMME</p>8€</div></a>
+</div>
+
+
+<div class="femme3">
+    <a href=""><div class="acce1"><img class="tof7" src="images/f20.avif"><p>SHORT HOMME </p>20€</div></a>
+   <a href=""> <div class="acce2"><img class="tof8" src="images/h9.jpg"><p>TSHIRT HOMME NOIR</p>25€</div></a>
+    <a href=""><div class="acce3"><img class="tof9" src="images/h99.jpg"><p>SHORT EN JEANS HOMME</p>10€</div></a>
+</div> #}
+
+{% endblock %}

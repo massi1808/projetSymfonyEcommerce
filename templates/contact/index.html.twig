@@ -1,0 +1,76 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}dmclothing{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+ {# <div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/dmclothing.symfony/dmclothing/src/Controller/ContactController.php'|file_link(0) }}">src/Controller/ContactController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/wamp64/www/dmclothing.symfony/dmclothing/templates/contact/index.html.twig'|file_link(0) }}">templates/contact/index.html.twig</a></code></li>
+    </ul>  #}
+{# </div>
+
+    
+     <form  class="form1" action=""method="post"><h1 align="center">Contactez-nous!</h1> 
+     <div class="nom1"><input type="text"name="nom"placeholder="nom"></div> 
+
+    <div class="nom1"><input type="text" name="prenom" placeholder="prenom"></div>
+    
+    <div class="nom1"><input type="email"name="email"placeholder="adresse mail"></div>
+    
+    <div class="nom1"><textarea name="message" id="message"  rows="10"placeholder="message"></textarea></div>
+    
+    <div class="envoye"><input type="submit"placeholder="envoyé"></div>
+    
+
+  </div>
+  </form> 
+ 
+{% endblock %}  #}
+{% extends 'base.html.twig' %}
+{% block title %}Contactez nous{% endblock %}
+{% block body %}
+
+
+ <div class="container mt-5 pt-5">
+     <div class="row">
+       <div class="col-sm-6 offset-sm-3">
+         <h1 align="center">Contactez-nous</h1>
+      {% for message in app.flashes('message') %}
+           <div class="alert alert-success">
+               {{ message }}
+           </div>
+       {% endfor %}
+       {{ form_start(form) }}
+           <div class="form2 ">
+           {{ form_widget(form.nom, { attr: { placeholder: "nom :"  } })   }}
+           </div>
+            <div class="form2 ">
+           {{ form_widget(form.prenom, { attr: { placeholder: "prenom :"  } })   }}
+           </div>
+           <div class="form2 ">
+           {{ form_widget(form.adressemail, { attr: { placeholder: "adressemail :"  } }) }}
+           </div>
+           <div class="form2 "> 
+           {{ form_widget(form.message, { attr: { placeholder: "message :"  } }) }}
+           </div>
+           <button class="form5">{{ button_label|default('Envoyer') }}</button>
+       {{ form_end(form) }}
+      </div>
+     </div>
+</div>
+{% endblock %}
+
+  
+  
+
+ 

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}dmclothing{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+{# <div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/dmclothing.symfony/dmclothing/src/Controller/FAQController.php'|file_link(0) }}">src/Controller/FAQController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/wamp64/www/dmclothing.symfony/dmclothing/templates/faq/index.html.twig'|file_link(0) }}">templates/faq/index.html.twig</a></code></li>
+    </ul>
+</div> #}
+<h1 align="center">FAQ</h1> <br> <br>
+<div class="faq"> <p>
+    Quels sont les modes de paiement acceptés ?
+    Nous acceptons les paiements par carte de crédit (Visa, Mastercard, American Express), PayPal, Apple Pay et Google Pay. <br>
+    
+    Quel est le délai de livraison ? <br>
+    Le délai de livraison dépend de votre emplacement et du mode de livraison que vous avez choisi. Nous proposons une livraison standard et express. Pour plus d'informations sur les délais de livraison, veuillez consulter notre page Livraison. <br>
+    
+    Comment puis-je suivre ma commande ?<br>
+    Une fois votre commande expédiée, vous recevrez un e-mail de confirmation contenant un numéro de suivi. Vous pouvez utiliser ce numéro pour suivre l'état de votre commande en ligne. <br>
+    
+    Puis-je retourner un produit ? <br>
+    Oui, nous acceptons les retours dans les 30 jours suivant la réception de votre commande. Pour plus d'informations sur notre politique de retour, veuillez consulter notre page Retours. <br>
+    
+    Comment puis-je contacter le service client ? <br>
+    Vous pouvez nous contacter par e-mail à l'adresse serviceclient@monsiteecommerce.com ou par téléphone au 01 23 45 67 89 du lundi au vendredi de 9h à 18h.
+    
+    Comment puis-je annuler ma commande ? <br>
+    Si vous souhaitez annuler votre commande, veuillez nous contacter dès que possible par e-mail ou par téléphone. Si votre commande a déjà été expédiée, vous devrez suivre notre procédure de retour pour obtenir un remboursement. <br>
+    
+    Est-ce que les prix incluent la TVA ? <br>
+    Oui, tous les prix affichés sur notre site web incluent la TVA. <br>
+    
+    Comment puis-je modifier mes informations de compte ? <br>
+    Vous pouvez modifier vos informations de compte en vous connectant à votre compte et en accédant à la section "Mes informations". Vous pouvez modifier votre adresse e-mail, votre adresse de livraison, etc. <br>
+    
+    Nous espérons que ces réponses ont été utiles. Si vous avez d'autres questions, n'hésitez pas à nous contacter.
+ </div> </p>
+{% endblock %}

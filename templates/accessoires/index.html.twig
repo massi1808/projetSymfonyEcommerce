@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}dmclothing{% endblock %}
+
+{% block body %}
+<style>
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col {
+    flex-basis: 33.33%;
+    padding: 10px;
+  }
+
+  .kabyle1 {
+    background-color: var(--grey);
+    border: 12px solid var(--grey);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .tof1 {
+    max-width: 100%;
+    height: auto;
+    width: 99%;
+  }
+
+  .nom-produit {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  /* Ajoutez d'autres styles CSS selon vos besoins */
+
+</style>
+
+<div class="example-wrapper">
+ 
+</div>
+
+{# <div class="femme"> #}
+
+<div class="row">
+  {% for produit in produits %}
+    {% if produit.category == 'accessoires' %} 
+      <div class="col">
+        <a href="">
+          <div class="kabyle1">
+            <img class="tof1" src="{{ asset('uploads/' ~ produit.illustration) }}">
+            <p>{{ produit.nom }}</p>{{ produit.price }}€
+          </div>
+        </a>
+          <a href="{{ path('add_to_cart', { 'id' : produit.id }) }}" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
+{# <div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/dmclothing.symfony/dmclothing/src/Controller/HommeController.php'|file_link(0) }}">src/Controller/HommeController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/wamp64/www/dmclothing.symfony/dmclothing/templates/homme/index.html.twig'|file_link(0) }}">templates/homme/index.html.twig</a></code></li>
+    </ul>
+</div> #}
+ {# <div class="femme">
+        
+     <a href=""><div class="kabyle1"><img class="tof1" src="images/acc1.jpg"><p>CASQUETTE HOMME</p>20€</div></a> 
+      <a href=""><div class="kabyle2"><img src="images/f21.jpg" class="tof2"><p>CASQUETTE HOMME</p>30€</div></a>
+      <a href=""><div class="chaussur2"><img class="tof5" src="images/f7.jpg"><p>CHAPEU FEMME</p>17€</div></a>
+</div>
+<div class="femme2">
+  <a href=""><div class="chaussur1"><img class="tof4" src="images/acc4.jpg"><p>CHAPEAU DE PAILLE FEMME </p>16€</div></a>
+  <a href=""><div class="acce1"><img class="tof7" src="images/f60.jpg"><p>SAC FEMME </p>50€</div></a>
+ <a href=""><div class="chaussur3"><img class="tof6" src="images/f4.jpg"><p>SAC CUIR FEMME</p>80€</div></a> 
+</div>
+<div class="femme3">
+ <a href=""><div class="acce1"><img class="tof7" src="images/j56.webp"><p>SAC FEMME </p>50€</div></a> 
+ <a href=""><div class="acce2"><img class="tof8" src="images/acc3.png"><p>SAC HOMME</p>45€</div></a> 
+ <a href=""><div class="acce3"><img class="tof9" src="images/h5.jpg"><p>SAC HOMME</p>65€</div></a> 
+</div> #}
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}dmclothing{% endblock %}
+
+{% block body %}
+<style>
+    {# .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; } #}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex-basis: 33.33%; /* Ajustez la largeur des colonnes selon vos besoins */
+  padding: 10px;
+}
+
+.kabyle1 {
+    background-color: var(--deep-yellow);
+        border: 12px solid var(--grey);
+    padding: 10px;
+    text-align: center;
+}
+
+
+.tof1 {
+    max-width: 100%;
+    height: auto;
+    width: 99%;
+}
+
+.nom-produit {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Ajoutez d'autres styles CSS selon vos besoins */
+
+</style>
+
+<div class="example-wrapper">
+ 
+</div>
+{# <div class="femme"> #}
+  
+{% for produits_group in produits|batch(3) %}
+  <div class="row">
+    {% for produit in produits_group %}
+      <div class="col">
+        <a href="">
+          <div class="kabyle1">
+            <img class="tof1" src="{{ asset('uploads/' ~ produit.illustration) }}">
+            <p>{{ produit.nom }}</p>{{ produit.price }}€
+          </div>
+        </a>
+        <a href="{{ path('add_to_cart', { 'id' : produit.id }) }}" class="btn btn-primary">Ajouter au panier</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+  
+{# </div> #}
+
+{# 
+<div class="femme2">
+<a href=""><div class="chaussur1"><img class="tof4" src="images/f23.jpg"><p>pull homme </p>16€</div></a>
+<a href=""><div class="chaussur2"><img class="tof5" src="images/f24.webp"><p>GILLET HOMME</p>17€</div></a>
+<a href=""><div class="chaussur3"><img class="tof6" src="images/f22.jpg"><p>CHEMISE HOMME NOIR</p>16€</div></a>
+</div>
+<div class="femme3">
+<a href=""><div class="acce1"><img class="tof7" src="images/f20.avif"><p>SHORT HOMME </p>20€</div></a>
+<a href=""> <div class="acce2"><img class="tof8" src="images/h9.jpg"><p>TSHIRT HOMME NOIR</p>25€</div></a>
+<a href=""><div class="acce3"><img class="tof9" src="images/h99.jpg"><p>SHORT EN JEANS HOMME</p>10€</div></a>
+</div>
+
+<div class="femme">
+        
+  <a href=""><div class="kabyle1"><img class="tof1" src="images/acc1.jpg"><p>CASQUETTE HOMME</p>20€</div></a> 
+   <a href=""><div class="kabyle2"><img src="images/f21.jpg" class="tof2"><p>CASQUETTE HOMME</p>30€</div></a>
+   <a href=""><div class="chaussur2"><img class="tof5" src="images/f7.jpg"><p>CHAPEU FEMME</p>17€</div></a>
+</div>
+<div class="femme2">
+<a href=""><div class="chaussur1"><img class="tof4" src="images/acc4.jpg"><p>CHAPEAU DE PAILLE FEMME </p>16€</div></a>
+<a href=""><div class="acce1"><img class="tof7" src="images/f60.jpg"><p>SAC FEMME </p>50€</div></a>
+<a href=""><div class="chaussur3"><img class="tof6" src="images/f4.jpg"><p>SAC CUIR FEMME</p>80€</div></a> 
+</div>
+<div class="femme3">
+<a href=""><div class="acce1"><img class="tof7" src="images/j56.webp"><p>SAC FEMME </p>50€</div></a> 
+<a href=""><div class="acce2"><img class="tof8" src="images/acc3.png"><p>SAC HOMME</p>45€</div></a> 
+<a href=""><div class="acce3"><img class="tof9" src="images/h5.jpg"><p>SAC HOMME</p>65€</div></a> 
+</div>
+
+<div class="femme">
+        
+  <a href=""><div class="kabyle1"><img class="tof1" src="images/j98.jfif"><p>ROBE POUR FEMME</p>40€</div></a>
+  <a href=""><div class="kabyle2"><img src="images/J40.jfif" class="tof2"><p>ROBE KABYLE FEMME</p>35€</div></a>
+  <a href=""><div class="jean"><img src="images/f3.jpg" class="tof3"><p>JEANS FEMME BLEU</p>20€</div></a>
+</div>
+<div class="femme2">
+<a href=""><div class="chaussur1"><img class="tof4" src="images/J25.jpg"><p>POLAIRE FEMME </p>50€</div></a>
+<a href=""><div class="chaussur2"><img class="tof5" src="images/j63.jfif"><p>SURVETEMENT FEMME</p>80€</div></a>
+<a href=""><div class="chaussur3"><img class="tof6" src="images/j22.jpg"><p>HAUT POUR FEMME</p>16€</div></a>
+</div>
+<div class="femme3">
+<a href=""><div class="acce1"><img class="tof7" src="images/J42.jpg"><p>GILET FEMME NOIR</p>20€</div></a>
+<a href=""><div class="acce2"><img class="tof8" src="images/j31.jfif"><p>TSHIRT FEMME</p>25€</div></a>
+<a href=""><div class="acce3"><img class="tof9" src="images/j88.jpg"><p>SHORT EN JEANS FEMME</p>18€</div></a>
+</div>
+<div class="femme">
+        
+  <a href=""><div class="kabyle1"><img src="images/b1.jpg"><p>CHAUSSURE HOMME CLASSIQUE</p>80€</div></a>
+  <a href=""><div class="kabyle2"><img src="images/b2.jpg"><p>MOCASSIN HOMME BLEU</p>35€</div></a>
+  <a href=""><div class="jean"><img src="images/b3.webp"><p>BASKET HOMME</p>8€</div></a>
+</div>
+<div class="femme2">
+<a href=""><div class="chaussur1"><img src="images/f15.jpg"><p>BASKET HOMME MONTANTE </p>16€</div></a>
+<a href=""><div class="chaussur2"><img src="images/f10.jpg"><p>CHAUSSURE FEMME BLANC&DORE</p>17€</div></a>
+<a href=""><div class="chaussur3"><img src="images/f17.webp"><p>CHAUSSURE FEMME NOIR</p>16€</div></a>
+</div>
+<div class="femme3">
+<a href=""><div class="acce1"><img src="images/f16.jpg"><p>CHAUSSUR FEMME </p>20€</div></a>
+<a href=""><div class="acce2"><img src="images/B5.jpg"><p>TALONS WOMEN</p>25€</div></a>
+<a href=""><div class="acce3"><img src="images/B7.jfif"><p>BOTTE FEMME CUIR NOIR</p>10€</div></a>
+</div> #}
+{% endblock %}

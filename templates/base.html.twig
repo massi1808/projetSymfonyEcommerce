@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome{% endblock %}</title>
+        <link rel="icon" href="images/ss22.ico">
+         <link rel="stylesheet"  href="{{asset('/css/styles.css')}}">
+         <lin rel="stylesheet"   href="{{asset('/css/style1.css')}}">
+         <lin rel="stylesheet"   href="{{asset('/css/style2.css')}}">
+         
+         
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+        
+    </head>
+    <body>
+     <header class="header">
+     <a href="home" class="logo"><span class="yellow">DM</span>clothing</a>
+
+     <nav class="navbar">
+        <a href={{ path('app_homme') }}>HOMME</a>
+        <a href={{ path('app_femme') }}>FEMME</a>
+        <a href={{ path('app_nouveautes') }}>NOUVEAUTES</a>
+        <form class="formserch" action="" method="post">
+          <input class="inputserch" type="search" placeholder="RECHERCHE..." >
+        </form>
+        <a href={{ path('app_contact') }}class="btn">CONTACT</a>
+        {% if not app.user %}
+    <a class="btn" href="{{ path('app_login') }}">CONNEXION</a>
+{% endif %}
+         {% if app.user %}
+    <a class="btn" href="{{ path('app_logout') }}">DECONNEXION</a>
+{% endif %}
+
+
+        <a href={{ path('app_register') }} class="btn">INSCRIPTION</a>
+        <a href={{ path('cart') }} class="btn">PANIER</a>
+
+      </nav>
+
+
+      <div class="hamburger">
+        <img src="./images/grid-outline.svg" alt="" />
+      </div>
+    </header>
+
+
+    <div class="promobar">
+      <a class="rouge" href="promo">Promos</a>
+      <a href="vetments" class="btn">Vetements</a>
+      <a href="chaussures" class="btn">Chaussures</a>
+      <a href="accessoires" class="btn">Accessoires</a>
+    </div>
+    {% block body %}{% endblock %}
+     {# <script src="js/jquery.js"></script> #}
+    <script src="js/main.js"></script>
+         <!-- Footer -->
+    <footer class="footer">
+      <div class="top">
+        <div class="content">
+          <a href="" class="logo"><span class="yellow">DM</span>clothing</a>
+          <p>
+            Site de vente de vêtements en prêt-à-porter en ligne. <br>
+            Rapport qualité-prix défiant toute concurrence. 
+          </p>
+        </div>
+
+        <div class="links">
+          <div class="link">
+            <h4>Informations</h4>
+            <div>
+              <img src="./images/location-cross.svg" alt="" />
+              <span>12 rue de paix Paris 75012</span>
+            </div>
+            <div>
+              <img src="./images/sms-tracking.svg" alt="" />
+              <span>DM@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="link">
+            <h4>Liens</h4>
+            <a href="homme.html">Homme</a>
+            <a href="femme.html">Femme</a>
+            <a href="homme.femme.html">Nouveautes Us</a>
+            <a href="contact">Contact</a>
+          </div>
+
+          <div class="link">
+            <h4>Ressources </h4>
+            <a href=app_mention_l_gal{{ path('app_mention_l_gal') }}>Mefntions legales</a>
+            <a href="politique">Politique de confidentialite</a>
+            <a href="cd">Condition d'utilisation</a>
+            <a href="faq">FAQ</a>
+            <a href="coockies">Cookies</a>
+          </div>
+
+          <div class="link">
+            <h4>Retrouvez nous sur</h4>
+            <div>
+              <img src="./images/instagram.svg" alt="" />
+              <span>Instagram</span>
+            </div>
+            <div>
+              <img src="./images/twitter.svg" alt="" />
+              <span>Twitter</span>
+            </div>
+            <div>
+              <img src="./images/facebook.svg" alt="" />
+              <span>Facebook</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p class="fin">Copyright © 2022-2023 Massinissa tous les droit reserves .</p>
+      </div>
+    </footer>
+        
+
+
+
+  
+
+   
+    </body>
+</html>
